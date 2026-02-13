@@ -120,12 +120,19 @@ button{
 // YES button escape
 const yes=document.getElementById("yes");
 function runYes(){
-    let x=Math.random()*30-15; // small random move for mobile
-    let y=Math.random()*30-15;
-    yes.style.position="relative";
-    yes.style.left=x+"px";
-    yes.style.top=y+"px";
+    // Get viewport width & height
+    const vw = window.innerWidth - yes.offsetWidth;
+    const vh = window.innerHeight - yes.offsetHeight;
+
+    // Random position anywhere on screen
+    const x = Math.random() * vw;
+    const y = Math.random() * vh;
+
+    yes.style.position = "absolute";
+    yes.style.left = x + "px";
+    yes.style.top = y + "px";
 }
+
 
 // Images array
 const images=[
